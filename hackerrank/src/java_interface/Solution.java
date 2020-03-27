@@ -33,6 +33,7 @@ public class Solution {
 	
 	static void ImplementedInterfaceNames(Object o) {
 		
+		@SuppressWarnings("rawtypes")
 		Class[] theInterfaces = o.getClass().getInterfaces();
 		for (int i = 0; i < theInterfaces.length; i++) {
 			String interfaceName = theInterfaces[i].getName();
