@@ -4,6 +4,7 @@ package java_iterators;
 import java.util.*;
 public class Main{
 	
+   @SuppressWarnings("rawtypes")
    static Iterator func(ArrayList mylist){
       Iterator it=mylist.iterator();
       while(it.hasNext()){
@@ -16,7 +17,7 @@ public class Main{
       
    }
    
-   @SuppressWarnings({ "unchecked" })
+   @SuppressWarnings({ "unchecked", "rawtypes" })
    public static void main(String []args){
       ArrayList mylist = new ArrayList();
       Scanner sc = new Scanner(System.in);
@@ -38,5 +39,6 @@ public class Main{
          //System.out.println(element.getClass().getName());
          System.out.println((String)element);
       }
+      sc.close();
    }
 }
