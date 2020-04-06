@@ -1,17 +1,19 @@
 package stack;
 
+
+
 import java.util.*;
 class Solution{
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	//@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String []argh)
 	{
 		Scanner sc = new Scanner(System.in);
-		
-		while (sc.hasNext()) {
+		int n = sc.nextInt();
+		while (n-- >0) {
 			String input=sc.next();
 			String [] ip = input.split("");
-            Stack st = new Stack();
+            Stack<String> st = new Stack<String>();
             boolean check = true;
             for(String str : ip) {
             	if(str.equals("(") || str.equals("{")|| str.equals("["))
@@ -21,16 +23,30 @@ class Solution{
             			check = false;
             			break;
             		}
-            		st.pop();
+            		String temp = st.peek();
+   
+                    if(temp.equals("(") && !str.equals(")") ){
+                        check = false;
+                        break;
+                    }
+                    if(temp.equals("{") && !str.equals("}") ){
+                        check = false;
+                        break;
+                    }if(temp.equals("[") && !str.equals("]") ){
+                        check = false;
+                        break;
+                    }
+                    st.pop();
+
             	}
             			
             }
             if(!st.isEmpty())
-            	System.out.println("false");
+            	System.out.println("NO");
             else if(!check)
-            	System.out.println("false");
+            	System.out.println("NO");
             else
-            	System.out.println("true");
+            	System.out.println("YES");
 		}
 		
 		sc.close();
